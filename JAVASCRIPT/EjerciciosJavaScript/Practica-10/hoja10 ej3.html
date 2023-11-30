@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>DOM</title>
+        
+<title>Ejemplo de un mostrador de diapositivas</title> 
+<style type="text/css">
+	body{
+		font-family:"Trebuchet MS", Helvetica, sans-serif;
+	}
+	div{
+				width:600px;
+				margin-right:auto;
+				margin-left:auto;
+				padding:20px;
+					
+				
+			}
+</style>
+<script type="text/javascript">
+	var lis = document.getElementsByTagName("li");
+	var cont = 0;
+	var fotos = document.getElementById("fotos");
+	var pokemonArray = [
+		'pokemon/Bulbasaur',
+		'pokemon/Ivysaur',
+		'pokemon/Venusaur',
+		'pokemon/Charmander',
+		'pokemon/Charmeleon',
+		'pokemon/Charizard',
+		'pokemon/Squirtle',
+		'pokemon/Wartortle',
+		'pokemon/Blastoise'
+		];
+	function adelante(){
+		lis[cont].style.color = "orange";
+		fotos.innerHTML = "<img src='"+pokemonArray[cont]+"'>"
+		if(cont != 0){
+			lis[cont-1].style.color = "black";
+		}
+		if (cont == lis.length){
+			cont = 0;
+		}
+		cont++;
+	}
+	function atras(){
+		lis[cont].style.color = "black";
+		fotos.innerHTML = "<img src='"+pokemonArray[cont-1]+"'>"
+		if(cont != 7){
+			lis[cont-1].style.color = "orange";
+		}
+		if (cont == 0){
+			cont = 7;
+		}
+		cont--;
+	}
+</script>
+</head>
+<body onload="cargar()">
+<div>
+<ul>
+<li>Bulbasaur</li>
+<li>Ivysaur</li>
+<li>Venusaur</li>
+<li>Charmander</li>
+<li>Charmeleon</li>
+<li>Charizard</li>
+<li>Squirtle</li>
+<li>Wartortle</li>
+<li>Blastoise</li>
+</ul>
+<input type="button" value="atras" onclick="atras()">
+<input type="button" value="adelante" onclick="adelante()">
+</div>
+<div id="fotos"></div>
+</body>
+</html>
