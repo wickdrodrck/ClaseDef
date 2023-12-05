@@ -1,0 +1,7 @@
+{
+  "name": "HacerEjerDef",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
