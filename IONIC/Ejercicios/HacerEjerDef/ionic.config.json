@@ -1,7 +1,5 @@
 {
-  "name": "HacerEjerDef",
-  "integrations": {
-    "capacitor": {}
-  },
+  "name": "New Ionic App",
+  "integrations": {},
   "type": "angular"
 }
