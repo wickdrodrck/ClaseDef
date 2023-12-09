@@ -18,7 +18,52 @@
 		}
 </style>
 <script type="text/javascript">
-
+	var imgs = document.getElementsByTagName("img");
+	var cont = 0;
+	var pokemonArray = [
+		'pokemon/Bulbasaur.png',
+		'pokemon/Ivysaur.png',
+		'pokemon/Venusaur.png',
+		'pokemon/Charmander.png',
+		'pokemon/Charmeleon.png',
+		'pokemon/Charizard.png',
+		'pokemon/Squirtle.png',
+		'pokemon/Wartortle.png',
+		'pokemon/Blastoise.png'
+		];
+		function adelante(){
+		
+		if (cont == pokemonArray.length){
+				alert("No se puede avanzar más.")
+		}else{
+			imgs[cont].style.borderColor = "black";
+			imgs[cont].style.border = "solid";
+			fotos.innerHTML = "<img src='"+pokemonArray[cont]+"'>"
+			if(cont != 0){
+				imgs[cont-1].style.border = "";
+				imgs[cont-1].style.borderColor = "";
+			}
+			cont++;
+			console.log(cont)
+		}
+		
+		}
+		function atras(){
+			cont--;
+			if (cont == 0){
+				alert("No se puede avanzar hacia atrás más.")
+				
+			}else{
+				imgs[cont].style.borderColor = "";
+				imgs[cont].style.border = "";
+				imgs[cont-1].style.borderColor = "black";
+				imgs[cont-1].style.border = "solid";
+				fotos.innerHTML = "<img src='"+pokemonArray[cont-1]+"'>"
+				
+				
+			}
+			
+		}
 </script>
 </head>
 <body onload="cargar()">
@@ -39,6 +84,6 @@
 <input type="button" value="atras" onclick="atras()">
 <input type="button" value="adelante" onclick="adelante()">
 </div>
-<div id="foto"></div>
+<div id="fotos"></div>
 </body>
 </html>
