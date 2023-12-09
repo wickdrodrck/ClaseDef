@@ -9,6 +9,7 @@ import { Component } from '@angular/core';
 export class HomePage {
 
   arrayLenguajes: Lenguajes[];
+  cont=0;
 
   constructor() {
      this.arrayLenguajes = [
@@ -21,10 +22,10 @@ export class HomePage {
   onClick(l:Lenguajes){
     if(l.seleccionado){
       l.seleccionado = true;
-      console.log(l.seleccionado+"Hola")
+      this.cont++
     }else{
       l.seleccionado = false;
-      console.log(l.seleccionado)
+      this.cont--
     }
   }
 

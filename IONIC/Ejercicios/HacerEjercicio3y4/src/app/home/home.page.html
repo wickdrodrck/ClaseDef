@@ -10,6 +10,7 @@
       </ion-item>
   </div>
   <div *ngFor="let l of arrayLenguajes">
+    <p>Total lenguajes {{cont}}</p>
     <ion-card *ngIf="l.seleccionado == true">
         <ion-card-header>
           {{l.nombre}}
