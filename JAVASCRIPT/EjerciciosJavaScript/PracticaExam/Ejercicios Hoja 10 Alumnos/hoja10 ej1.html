@@ -22,49 +22,45 @@
  </style>
  <script>
 	function limpiar(){
-
-		for(var b = 0;b<document.forms.length;b++){
-			document.forms[b].reset();
+		for(var x = 0;x<document.forms.length;x++){
+			document.forms[x].reset()
 		}
-		
-
-		
 	}
 
 	function peligro(){
-		h3list = document.getElementsByTagName("h3");
-
-		for(let a = 0;a<h3list.length;a++){
-			h3list[a].innerHTML = "PELIGRO!"
+		peligros = document.getElementsByTagName("h3");
+		for(let x = 0;x<peligros.length;x++){
+			peligros[x].innerHTML = "PELIGRORL !!!!"
 		}
+	
 	}
 
 	function cambiarparrafos(){
-		sleect = document.getElementById("color");
-		allp = document.getElementsByTagName("p");
-
-		for(let a = 0;a < allp.length;a++){
-			allp[a].style.color = sleect.options[sleect.selectedIndex].text;
+		valoret = document.getElementById("color");
+		valoret2 = document.getElementsByTagName("p");
+		for(let x = 0;x<valoret2.length;x++){
+			valoret2[x].style.color = valoret.options[valoret.selectedIndex].text;
 		}
 	}
 
 	function intercambiar(){
-		todoslinks = document.links;
-		for(var f = 0;f < todoslinks.length;f++){
-			todoslinks[f].href = "http://www.youtube.com";
-			todoslinks[f].innerHTML = "Youtube";
+		links = document.links
+
+		for(let x = 0;x<links.length;x++){
+			links[x].innerHTML= "Youtube"
+			links[x].href = "http://www.Youtube.com/"
 		}
 	}
 
 	function ocultar(){
-		todoshid = document.getElementsByName("ocultable");
-		for(var x = 0;x<todoshid.length;x++){
-			todoshid[x].style.visibility = "hidden";
+		ocultables = document.getElementsByName("ocultable");
+		for(let x = 0;x<ocultables.length;x++){
+			ocultables[x].style.visibility = "hidden";
 		}
 	}
  </script>
 </head>
-<body onload="mostrar()">
+<body>
 <div id="div1">
 <fieldset id="pos1">
 <h3> FORMULARIO UNO </h3>
@@ -79,16 +75,16 @@ Y otro más<input type="text" name="campo3" value="50">
 
 <h3> FORMULARIO DOS </h3>
 <form name="form3">
-Un campo <input type="text" id="campo4" name="ocultable">
+Un campo <input type="text" name="ocultable" >
 <br>
 Otro campo <input type="text" name="campo5">
 <br>
-Y otro más<input type="text" id="campo6" name="ocultable">
+Y otro más<input type="text" name="ocultable">
 </form>
 <p>Este párrafo es el segundo</p>
 </fieldset>
 <fieldset id="pos2">
-<p>PRIMERO</p> 
+<p>PRIMERO 
  <br> <a href="http://www.google.es/"> Google </a> 
  <br> <a href="http://www.elpais.es/"> El País </a> </p>
 No párrafo
