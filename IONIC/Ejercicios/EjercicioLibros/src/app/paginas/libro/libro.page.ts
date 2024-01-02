@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Libro } from '../../libro';
 
 @Component({
   selector: 'app-libro',
@@ -7,12 +8,10 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./libro.page.scss'],
 })
 export class LibroPage implements OnInit {
-  libros:any;
   id:any;
   libro:any;
-  constructor(private r: ActivatedRoute, private router: Router) {
-    this.libros =  [
-      {
+  libros: Libro[] = [
+    {
       "title": "La chica del verano",
       "author": "Javier Castillo",
       "genre": "Novela negra",
@@ -21,9 +20,9 @@ export class LibroPage implements OnInit {
       "editorial": "Planeta",
       "year": 2023,
       "portada": "verano.png",
-      "id" : 1
-      },
-      {
+      "id": 1
+    },
+    {
       "title": "El problema final",
       "author": "Juan Gómez-Jurado",
       "genre": "Novela negra",
@@ -32,9 +31,9 @@ export class LibroPage implements OnInit {
       "editorial": "Planeta",
       "year": 2023,
       "portada": "final.png",
-      "id" : 2
-      },
-      {
+      "id": 2
+    },
+    {
       "title": "Un cuento perfecto",
       "author": "Elísabet Benavent",
       "genre": "Romance",
@@ -43,9 +42,9 @@ export class LibroPage implements OnInit {
       "editorial": "Planeta",
       "year": 2023,
       "portada": "cuento.png",
-      "id" : 3
-      },
-      {
+      "id": 3
+    },
+    {
       "title": "Revolución",
       "author": "Samantha Shannon",
       "genre": "Fantasía",
@@ -54,9 +53,9 @@ export class LibroPage implements OnInit {
       "editorial": "Planeta",
       "year": 2023,
       "portada": "revolucion.png",
-      "id" : 4
-      },
-      {
+      "id": 4
+    },
+    {
       "title": "El monje que vendió su Ferrari",
       "author": "Robin Sharma",
       "genre": "Autoayuda",
@@ -65,9 +64,9 @@ export class LibroPage implements OnInit {
       "editorial": "Planeta",
       "year": 2023,
       "portada": "monje.png",
-      "id" : 5
-      },
-      {
+      "id": 5
+    },
+    {
       "title": "El día que se perdió la cordura",
       "author": "Juan Carlos Jurado",
       "genre": "Novela negra",
@@ -76,9 +75,9 @@ export class LibroPage implements OnInit {
       "editorial": "Planeta",
       "year": 2023,
       "portada": "cordura.png",
-      "id" : 6
-      },
-      {
+      "id": 6
+    },
+    {
       "title": "La paciente silenciosa",
       "author": "Alex Michaelides",
       "genre": "Thriller",
@@ -87,9 +86,9 @@ export class LibroPage implements OnInit {
       "editorial": "Planeta",
       "year": 2023,
       "portada": "silencio.png",
-      "id" : 7
-      },
-      {
+      "id": 7
+    },
+    {
       "title": "Cómo dejar de pensar demasiado",
       "author": "Guillem Viladoms",
       "genre": "Autoayuda",
@@ -98,9 +97,11 @@ export class LibroPage implements OnInit {
       "editorial": "Planeta",
       "year": 2023,
       "portada": "pensar.png",
-      "id" : 8
-      }
-      ]
+      "id": 8
+    }
+  ];
+  constructor(private r: ActivatedRoute, private router: Router) {
+
       this.id = this.r.snapshot.params['id'];
       this.libro = this.libros.find((l: { id: any; }) => l.id == this.id);
   }

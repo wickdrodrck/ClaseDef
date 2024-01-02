@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Libro } from '../libro';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +9,8 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
 
-  libros:any;
-  constructor(private router: Router) {
-    this.libros =  [
-      {
+  libros: Libro[] = [
+    {
       "title": "La chica del verano",
       "author": "Javier Castillo",
       "genre": "Novela negra",
@@ -19,10 +18,10 @@ export class HomePage {
       "sinopsis": "Durante las vacaciones de verano en un pequeño pueblo costero, una joven desaparece sin dejar rastro. Su familia y amigos comienzan a buscarla, pero pronto se dan cuenta de que algo terrible ha sucedido.",
       "editorial": "Planeta",
       "year": 2023,
-      "portada": "verano.png",
-      "id" : 1
-      },
-      {
+      "portada": "verano.jpeg",
+      "id": 1
+    },
+    {
       "title": "El problema final",
       "author": "Juan Gómez-Jurado",
       "genre": "Novela negra",
@@ -30,10 +29,10 @@ export class HomePage {
       "sinopsis": "Un asesino en serie está aterrorizando Madrid. Las víctimas son todas mujeres jóvenes y bellas, y todas tienen una cosa en común: están relacionadas con el mundo del arte.",
       "editorial": "Planeta",
       "year": 2023,
-      "portada": "final.png",
-      "id" : 2
-      },
-      {
+      "portada": "problema.jpg",
+      "id": 2
+    },
+    {
       "title": "Un cuento perfecto",
       "author": "Elísabet Benavent",
       "genre": "Romance",
@@ -41,10 +40,10 @@ export class HomePage {
       "sinopsis": "Una historia de amor imposible entre dos personas que no deberían conocerse.",
       "editorial": "Planeta",
       "year": 2023,
-      "portada": "cuento.png",
-      "id" : 3
-      },
-      {
+      "portada": "cuento.jpg",
+      "id": 3
+    },
+    {
       "title": "Revolución",
       "author": "Samantha Shannon",
       "genre": "Fantasía",
@@ -53,9 +52,9 @@ export class HomePage {
       "editorial": "Planeta",
       "year": 2023,
       "portada": "revolucion.png",
-      "id" : 4
-      },
-      {
+      "id": 4
+    },
+    {
       "title": "El monje que vendió su Ferrari",
       "author": "Robin Sharma",
       "genre": "Autoayuda",
@@ -64,9 +63,9 @@ export class HomePage {
       "editorial": "Planeta",
       "year": 2023,
       "portada": "monje.png",
-      "id" : 5
-      },
-      {
+      "id": 5
+    },
+    {
       "title": "El día que se perdió la cordura",
       "author": "Juan Carlos Jurado",
       "genre": "Novela negra",
@@ -75,9 +74,9 @@ export class HomePage {
       "editorial": "Planeta",
       "year": 2023,
       "portada": "cordura.png",
-      "id" : 6
-      },
-      {
+      "id": 6
+    },
+    {
       "title": "La paciente silenciosa",
       "author": "Alex Michaelides",
       "genre": "Thriller",
@@ -86,9 +85,9 @@ export class HomePage {
       "editorial": "Planeta",
       "year": 2023,
       "portada": "silencio.png",
-      "id" : 7
-      },
-      {
+      "id": 7
+    },
+    {
       "title": "Cómo dejar de pensar demasiado",
       "author": "Guillem Viladoms",
       "genre": "Autoayuda",
@@ -97,13 +96,36 @@ export class HomePage {
       "editorial": "Planeta",
       "year": 2023,
       "portada": "pensar.png",
-      "id" : 8
-      }
-      ]
+      "id": 8
+    }
+  ];
+  constructor(private router: Router) {
+
   }
 
   redireccion(id:any){
     this.router.navigate(['/libro',id]);
   }
+
+  vuelta(){
+    this.router.navigate(['/home']);
+  }
+
+  ordenartit(){
+    this.libros.sort((a, b) => a.title.localeCompare(b.title));
+    this.vuelta();
+  }
+
+  ordenarautor(){
+    this.libros.sort((a, b) => a.author.localeCompare(b.author));
+    this.vuelta();
+  }
+
+  ordenargenero(){
+    this.libros.sort((a, b) => a.genre.localeCompare(b.genre));
+    this.vuelta();
+  }
+
+
 
 }
