@@ -1,0 +1,7 @@
+{
+  "name": "EsqueletoPracticas",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
