@@ -1,4 +1,4 @@
-"""Ejercicio1 URL Configuration
+"""Ejercicio4 URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -16,9 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from Ejercicio1.views import calculoEdad
+from Ejercicio4.views import LenguajeFav
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("Edad/<int:edad>/<int:anyo>", calculoEdad),
+    path('', LenguajeFav)
 ]
