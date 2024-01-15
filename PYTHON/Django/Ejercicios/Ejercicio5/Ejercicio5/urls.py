@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from Ejercicio5.views import Lenguajes
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', Lenguajes)
 ]
