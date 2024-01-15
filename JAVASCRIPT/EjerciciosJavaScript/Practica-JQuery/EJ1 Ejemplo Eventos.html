@@ -23,6 +23,20 @@
                 $(this).html("(A) Método hover(): Pasa con el ratón por encima y luego sal.");
             }
         });
+        $("#boton").on({
+            'onmouseenter': function(){
+                $(this).animate({ opacity: 0.3 }, 600);
+            },
+            'onmouseleave': function(){
+                $(this).animate({ opacity: 1 }, 600);
+            },
+            'click': function(){
+                $("span").html("Has hecho"+evento.type+"en el botón.");
+            },
+            'dblclick': function(){
+                $("span").html("Has hecho"+evento.type+"en el botón.");
+            }
+        }) 
     });
 </script>
 		
