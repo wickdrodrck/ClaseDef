@@ -54,7 +54,7 @@ ROOT_URLCONF = 'Ejercicio6.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["Ejercicio6/templates"],
+        'DIRS': ["asignaturas/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -15,8 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
-from Ejercicio6.views import Asignaturas
+from asignaturas.views import Asignaturas
 
 
 
