@@ -54,18 +54,33 @@
 			$(this).text(aleatorio(1,10));
 		});
 
+		
+		
+
 		tabla.each(function() {
 			$(this).on("click", function() {
 				$(this).css("background-color", "#FF10FF");
 				console.log(total.val())
-				valor = $(this).text()
+				console.log(objectivo.val())
+				valor = $(this).text();
+				$(this).addClass(clicked = 'correcorre');
 				total.val(parseInt(total.val()) + parseInt(valor));
 				if(total.val() == objectivo.val() || total.val() > objectivo.val()){
-					$(this).text("*");
+					tabla.each(function(){
+						if(!$(this).hasClass(clicked)){
+							$(this).text("*");
+						}
+					if(total.val() > objectivo.val()){
+						alert("Te has pasao pescao")
+					} else if(total.val() == objectivo.val()){
+						alert("Ganaste.")
+					}
+					});
 				}
 
 			});
 
+			
 			
 		});
 		
