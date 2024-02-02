@@ -8,6 +8,7 @@ import { ListaPageRoutingModule } from './lista-routing.module';
 
 import { ListaPage } from './lista.page';
 import { ComponentesModule } from 'src/app/componentes/componentes.module';
+import { UsuariosserviService } from 'src/app/servicios/usuariosservi.service';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { ComponentesModule } from 'src/app/componentes/componentes.module';
     FormsModule,
     IonicModule,
     ListaPageRoutingModule,
-    ComponentesModule
+    ComponentesModule,
+    UsuariosserviService
   ],
   declarations: [ListaPage]
 })
