@@ -17,8 +17,8 @@ import { UsuariosserviService } from 'src/app/servicios/usuariosservi.service';
     IonicModule,
     ListaPageRoutingModule,
     ComponentesModule,
-    UsuariosserviService
   ],
-  declarations: [ListaPage]
+  declarations: [ListaPage],
+  providers: [UsuariosserviService]
 })
 export class ListaPageModule {}

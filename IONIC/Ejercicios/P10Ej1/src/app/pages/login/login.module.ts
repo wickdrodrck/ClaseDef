@@ -1,4 +1,3 @@
-import { ServicioService } from './../../../../../../../ANGULAR/Ejercicios/Ejercicios/Práctica_5/src_Ejercicio3y4/app/componentes/servicio.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
