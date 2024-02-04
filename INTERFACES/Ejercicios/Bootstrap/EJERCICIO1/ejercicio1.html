@@ -14,43 +14,45 @@
     .text-whitesmoke{
         color: whitesmoke;
     }
-    .bg-izq{
+    .bg-pr{
         background-color: #3B668C;
     }
-    .bg-dcha{
+    .bg-se{
         background-color: #8AA3A6;
     }
 </style>
 <body>
     <div class="container-md text-center text-whitesmoke">
-        <div class="row bg-black mb-md-2 mt-md-2 p-md-2">
+        <div class="row bg-dark mb-2 mt-2 p-2">
             <h2>A veces lo esencial es invisible a los ojos</h2>
         </div>
-        <div class="row bg-black mb-md-2 mt-md-2 p-md-2">
-            <img src="fotoesencial.jpg">
+        <div class="row bg-dark mb-2 mt-2 p-2">
+            <img src="fotoesencial.jpg" class="img-fluid">
         </div>
-        <div class="row mt-md-2 bg-black">
-            <div class="col ">
-                <div class="row mt-md-2 p-md-3 bg-izq">
-                    <div class="col-12">
-                        <img src="fotomes.jpg">
+        <div class="row mt-2 bg-dark">
+            <div class="col-md-6">
+                <div class="row mt-2 p-3 bg-pr">
+                    <div class="col-md-12 p-3">
+                        <img src="fotomes.jpg" class="img-fluid">
                     </div>
-                    <div class="col-12">
-                        <h2>Foto del Mes</h2>
+                    <div class="col-md-12">
+                        <h3>Foto del Mes</h3>
                     </div>
                 </div>
             </div>
-            <div class="col ">
-                <div class="row mt-md-2 p-md-3 bg-dcha">
-                    <div class="col-12">
-                        <img src="fotosemana.jpg">
+            <div class="col-md-6">
+                <div class="row mt-2 p-3 bg-se">
+                    <div class="col-md-12 p-3">
+                        <img src="fotosemana.jpg" class="img-fluid">
                     </div>
-                    <div class="col-12">
-                        <h2>Foto de la semana</h2>
+                    <div class="col-md-12">
+                        <h3>Foto de la semana</h3>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
