@@ -11,6 +11,13 @@
 		</style>
 		<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
 		<script>
+			document.addEventListener('keydown', function(event) {
+			const keysToBlock = ['F12', 'F5']; // These keys are used for dev tools and refreshing
+			if (keysToBlock.includes(event.key)) {
+				event.preventDefault(); // Block these keys from being pressed
+				alert('You shall not use developer tools or refresh this page!'); // Warn the user that they're blocked
+				}
+			});
 			$(document).ready(function () {
 				$("#palabra").on('keypress',
 					function(){
