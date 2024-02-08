@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+<style>
+table,th,td {
+  border : 1px solid black;
+  border-collapse: collapse;
+}
+th,td {
+  padding: 5px;
+}
+</style>
+</head>
+<script>
+  function descargaXML() {
+  // Obtener la instancia del objeto XMLHttpRequest   
+  var peticion_http = new XMLHttpRequest(); // Agregar la declaración "var"
+
+  // Preparar la funcion de respuesta
+  peticion_http.onload = muestraContenido;
+
+  // Realizar peticion HTTP
+  peticion_http.open('GET', 'discos.xml', true);
+  peticion_http.send();
+}
+
+function muestraContenido() {
+  if (peticion_http.readyState == 4) {
+    if (peticion_http.status == 200) {
+      xmlDoc = peticion_http.responseXML;
+
+      // Obtener el cuerpo de la tabla (suponiendo que tienes un "tbody")
+      var cuerpo = document.getElementById("demo").querySelector("tbody");
+      if (!cuerpo) {
+        // Si no existe el "tbody", crearlo
+        cuerpo = document.createElement("tbody");
+        document.getElementById("demo").appendChild(cuerpo);
+      }
+
+      // Recorrer los nodos y agregar filas a la tabla
+      var x = xmlDoc.getElementsByTagName("ARTIST");
+      var x2 = xmlDoc.getElementsByTagName("TITLE");
+      var x3 = xmlDoc.getElementsByTagName("COMPANY");
+
+      for (i = 0; i < x.length; i++) {
+        // Crear una nueva fila
+        var fila = document.createElement("tr");
+
+        // Crear las celdas
+        var celdaNombre = document.createElement("td");
+        var celdaTitulo = document.createElement("td");
+        var celdaCompania = document.createElement("td");
+
+        // Extraer el contenido y verificar el tipo de nodo
+        if (x[i].childNodes[0].nodeType === Node.TEXT_NODE) {
+          celdaNombre.textContent = x[i].childNodes[0].nodeValue;
+        }
+        if (x2[i].childNodes[0].nodeType === Node.TEXT_NODE) {
+          celdaTitulo.textContent = x2[i].childNodes[0].nodeValue;
+        }
+        if (x3[i].childNodes[0].nodeType === Node.TEXT_NODE) {
+          celdaCompania.textContent = x3[i].childNodes[0].nodeValue;
+        }
+
+        // Agregar las celdas a la fila
+        fila.appendChild(celdaNombre);
+        fila.appendChild(celdaTitulo);
+        fila.appendChild(celdaCompania);
+
+        // Agregar la fila al cuerpo de la tabla
+        cuerpo.appendChild(fila);
+      }
+    } else {
+      alert("ERROR " + peticion_http.status); // Manejo de errores con alert
+    }
+  }
+}
+
+</script>
+<body>
+
+<button type="button" onclick="descargaXML()">MIS DISCOS</button>
+<br><br>
+<table id="demo"></table>
+
+</body>
+</html>
