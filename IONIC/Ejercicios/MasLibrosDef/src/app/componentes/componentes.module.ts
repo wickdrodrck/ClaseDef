@@ -5,7 +5,7 @@ import { FooterComponent } from './footer/footer.component';
 import { LibrosComponent } from './libros/libros.component';
 import { OrdenarComponent } from './ordenar/ordenar.component';
 import { IonicModule } from '@ionic/angular';
-import { ActivatedRoute, Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -14,8 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   imports: [
     CommonModule,
     IonicModule,
-    ActivatedRoute,
-    Router
+    RouterModule,
   ], exports: [
     HeaderComponent, FooterComponent, LibrosComponent, OrdenarComponent
   ]
