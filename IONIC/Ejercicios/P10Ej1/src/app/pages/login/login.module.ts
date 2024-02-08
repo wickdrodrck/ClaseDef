@@ -8,7 +8,7 @@ import { LoginPageRoutingModule } from './login-routing.module';
 
 import { LoginPage } from './login.page';
 import { ComponentesModule } from 'src/app/componentes/componentes.module';
-import { UsuariosserviService } from 'src/app/servicios/usuariosservi.service';
+import { RouterLink } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -17,7 +17,8 @@ import { UsuariosserviService } from 'src/app/servicios/usuariosservi.service';
     IonicModule,
     LoginPageRoutingModule,
     ComponentesModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterLink
   ],
   declarations: [LoginPage]
 })

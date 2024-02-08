@@ -1,4 +1,7 @@
+import { IUsuario } from './../../interfaz/interfaz';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import { UsuariosserviService } from 'src/app/servicios/usuariosservi.service';
 
 @Component({
@@ -7,17 +10,19 @@ import { UsuariosserviService } from 'src/app/servicios/usuariosservi.service';
   styleUrls: ['./lista.page.scss'],
 })
 export class ListaPage implements OnInit {
-
+  user:string | null;
   lista: any;
-  constructor(private dataservice:UsuariosserviService) {
-
+  userselect: IUsuario | null;
+  constructor(private dataservice:UsuariosserviService, private r: ActivatedRoute, private router: Router) {
+    this.lista = this.dataservice.lista;
+    this.user = this.r.snapshot.paramMap.get('user');
+    this.userselect = null;
   }
 
   ngOnInit() {
-    this.lista = this.dataservice.getTopHeadlines();
   }
 
-  dalecomba(){
-
+  dalecomba(user:IUsuario){
+    this.userselect = user;
   }
 }

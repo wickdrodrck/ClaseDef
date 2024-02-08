@@ -1,30 +1,36 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IUsuario } from '../interfaz/interfaz';
-import { Observable } from 'rxjs';
+import { OnInit } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsuariosserviService {
+export class UsuariosserviService implements OnInit{
 
   lista: IUsuario[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.getTopHeadlines().subscribe(data => {
+      data.forEach(u=> {
+        this.lista.push(u);
+      });
+    });
+  }
+  ngOnInit(): void {
 
-  getTopHeadlines(): Observable<IUsuario[]> {
-    return this.http.get<IUsuario[]>("/assets/json/usuarios.json");
   }
 
-  loadUsers(): void {
-    this.getTopHeadlines().subscribe(data => this.lista = data);
+  getTopHeadlines(){
+    return this.http.get<IUsuario[]>("/assets/json/usuarios.json");
   }
 
   getUsers(): IUsuario[] {
     return this.lista;
   }
 
-  getUser(usu: string, password: string): IUsuario | undefined {
+  getUser (usu: string, password: string){
+    console.log(this.lista);
     return this.lista.find(p => p.usuario === usu && p.password === password);
   }
 }
