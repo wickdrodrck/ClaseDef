@@ -1,13 +1,7 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>libro</ion-title>
-  </ion-toolbar>
+<ion-header>
+  <app-header [paginaActual]="tituloLibro"></app-header>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">libro</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <app-libro2 (tituloActualizado)="actualizarTituloLibro($event)" ></app-libro2>
 </ion-content>

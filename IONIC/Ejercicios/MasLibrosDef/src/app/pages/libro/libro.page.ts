@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Ilibro } from 'src/app/libro';
 
 @Component({
   selector: 'app-libro',
@@ -6,8 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./libro.page.scss'],
 })
 export class LibroPage implements OnInit {
+  id: any;
+  tituloLibro:any;
+  idmax: any;
 
-  constructor() { }
+  actualizarTituloLibro(titulo: string) {
+    this.tituloLibro = titulo; // Captura el título del libro emitido por el componente LibroComponent
+    console.log(this.tituloLibro)
+  }
+
+
+
+  constructor() {
+
+}
 
   ngOnInit() {
   }

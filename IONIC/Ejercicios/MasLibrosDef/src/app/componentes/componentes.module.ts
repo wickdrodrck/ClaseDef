@@ -5,19 +5,20 @@ import { FooterComponent } from './footer/footer.component';
 import { LibrosComponent } from './libros/libros.component';
 import { OrdenarComponent } from './ordenar/ordenar.component';
 import { IonicModule } from '@ionic/angular';
-import { ActivatedRoute, Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { LibroComponent } from './libro/libro.component';
+import { ServiciolibrosService } from '../servicios/serviciolibros.service';
 
 
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, LibrosComponent, OrdenarComponent],
+  declarations: [HeaderComponent, FooterComponent, LibrosComponent, OrdenarComponent, LibroComponent],
   imports: [
     CommonModule,
     IonicModule,
-    ActivatedRoute,
-    Router
+    RouterModule,
   ], exports: [
-    HeaderComponent, FooterComponent, LibrosComponent, OrdenarComponent
-  ]
+    HeaderComponent, FooterComponent, LibrosComponent, OrdenarComponent, LibroComponent
+  ],providers: [ServiciolibrosService]
 })
 export class ComponentesModule { }
