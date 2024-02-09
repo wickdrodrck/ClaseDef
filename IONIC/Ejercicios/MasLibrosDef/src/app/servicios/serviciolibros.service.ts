@@ -1,3 +1,4 @@
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { Ilibro } from '../libro';
@@ -12,7 +13,7 @@ export class ServiciolibrosService implements OnInit{
   libro: any;
 
   constructor(private http: HttpClient) {
-    this.getTopHeadlines().subscribe(data => {
+    this.http.get<Ilibro[]>("../assets/json/libros.json").subscribe(data => {
       data.forEach(l=> {
         this.libros.push(l);
       });
@@ -22,19 +23,17 @@ export class ServiciolibrosService implements OnInit{
 
   }
 
-  getTopHeadlines(){
-    return this.http.get<Ilibro[]>("../assets/json/libros.json");
-  }
-
   getLibros(): Ilibro[] {
     return this.libros;
   }
 
-  async getLibro(id: any) {
-    await this.getTopHeadlines(); // Espera a que los datos se carguen
+  getLibro(id: any) {
+    // Espera a que los datos se carguen
     console.log(this.libros);
-    console.log(this.libros.find(l => l.id == id));
-    return this.libros.find(l => l.id == id);
+    this.libros.forEach(l=>{console.log(l)});
+    let  l=this.libros.find(l => l.id == id);
+    console.log(l);
+    return l;
   }
 
 

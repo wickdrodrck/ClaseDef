@@ -18,10 +18,7 @@ export class LibroComponent  implements OnInit {
 
   constructor(private router : Router, private r : ActivatedRoute, private servic: ServiciolibrosService) {
     this.id = this.r.snapshot.params['id'];
-    console.log(this.id)
-
-
-
+    console.log(this.id);
 
 }
 vuelta(){
@@ -29,11 +26,11 @@ vuelta(){
 }
 
   ngOnInit() {
-
     this.libro = this.servic.getLibro(this.id);
     this.titulo = "Página detalles de: " + this.libro.title;
     console.log(this.titulo)
     this.tituloActualizado.emit(this.titulo);
+
   }
 
 }
