@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/
+xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -15,7 +16,7 @@ th,td {
 <script>
   function descargaXML() {
   // Obtener la instancia del objeto XMLHttpRequest   
-  var peticion_http = new XMLHttpRequest(); // Agregar la declaración "var"
+  peticion_http = new XMLHttpRequest(); // Agregar la declaración "var"
 
   // Preparar la funcion de respuesta
   peticion_http.onload = muestraContenido;
@@ -37,36 +38,34 @@ function muestraContenido() {
         cuerpo = document.createElement("tbody");
         document.getElementById("demo").appendChild(cuerpo);
       }
-
+      array01 = [];
       // Recorrer los nodos y agregar filas a la tabla
-      var x = xmlDoc.getElementsByTagName("ARTIST");
-      var x2 = xmlDoc.getElementsByTagName("TITLE");
-      var x3 = xmlDoc.getElementsByTagName("COMPANY");
+      array01.push(xmlDoc.getElementsByTagName("ARTIST")); 
+      array01.push(xmlDoc.getElementsByTagName("TITLE")); 
+      array01.push(xmlDoc.getElementsByTagName("COMPANY")) ;
 
-      for (i = 0; i < x.length; i++) {
+      const headers = ["ARTISTA", "TITULO", "COMPAÑIA"];
+      const filatitulo = document.createElement("tr");
+      headers.forEach(header => filatitulo.appendChild(document.createElement("td")).textContent = header);
+      cuerpo.appendChild(filatitulo) // SIMPLIFICACION DE METER LOS TITULOS.
+      array1 = [];
+      for (i = 0; i < array01[0].length; i++) {
         // Crear una nueva fila
         var fila = document.createElement("tr");
 
-        // Crear las celdas
-        var celdaNombre = document.createElement("td");
-        var celdaTitulo = document.createElement("td");
-        var celdaCompania = document.createElement("td");
+        // Crear la celda
+        for (f = 0; f < array01[0].length; f++){
+          a = document.createElement("td");
+          a.textContent = array01[f][i].innerHTML;
+          array1.push(a);
+          console.log(a);
+          
+            for (g = 0; g < array01[0].length; g++){
+            fila.appendChild(array1[g]);
+          }
 
-        // Extraer el contenido y verificar el tipo de nodo
-        if (x[i].childNodes[0].nodeType === Node.TEXT_NODE) {
-          celdaNombre.textContent = x[i].childNodes[0].nodeValue;
         }
-        if (x2[i].childNodes[0].nodeType === Node.TEXT_NODE) {
-          celdaTitulo.textContent = x2[i].childNodes[0].nodeValue;
-        }
-        if (x3[i].childNodes[0].nodeType === Node.TEXT_NODE) {
-          celdaCompania.textContent = x3[i].childNodes[0].nodeValue;
-        }
-
-        // Agregar las celdas a la fila
-        fila.appendChild(celdaNombre);
-        fila.appendChild(celdaTitulo);
-        fila.appendChild(celdaCompania);
+        
 
         // Agregar la fila al cuerpo de la tabla
         cuerpo.appendChild(fila);
