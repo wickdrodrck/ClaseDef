@@ -19,6 +19,6 @@ import { ServiciolibrosService } from '../servicios/serviciolibros.service';
     RouterModule,
   ], exports: [
     HeaderComponent, FooterComponent, LibrosComponent, OrdenarComponent, LibroComponent
-  ],providers: [ServiciolibrosService]
+  ],providers: []
 })
 export class ComponentesModule { }
