@@ -5,13 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 2 - Formulario</title>
 </head>
+<style>
+    .centralita{
+
+    }
+</style>
 <body>
-    <form method="post">
+    <form method="post" class="centralita">
         {% csrf_token %}
-        {% for x in form %}
-            <label name="{{x.label}}">{{x.label}}:</label>
-            {{x}}
-            <br>
+        {% for field in form %}
+        <div>
+            <label for="{{ field.id_for_label }}">{{ field.label }}:</label><br>
+            {{ field }}
+        </div>
+        <br>
         {% endfor %}
         <button type="submit">Enviar</button>
     </form>
